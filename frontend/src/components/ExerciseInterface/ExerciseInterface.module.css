@@ -1,0 +1,322 @@
+/**
+ * Exercise Interface Styles
+ *
+ * Creates the look and feel of a personalized adaptive trainer.
+ * "This was made just for me" - exercises that feel responsive and alive.
+ */
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.icon {
+  font-size: 2.5rem;
+}
+
+.title h2 {
+  font-size: 1.5rem;
+  margin: 0;
+  color: #2d3748;
+  font-weight: 600;
+}
+
+.focusChars {
+  font-size: 0.9rem;
+  color: #718096;
+  margin: 0.5rem 0 0 0;
+}
+
+.difficulty {
+  background: #edf2f7;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #4299e1;
+  font-size: 0.95rem;
+}
+
+/* Loading and Error States */
+.loadingState,
+.errorState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  min-height: 300px;
+}
+
+.loadingState p,
+.errorState p {
+  font-size: 1.1rem;
+  color: #4a5568;
+  text-align: center;
+  margin: 0;
+}
+
+.errorState {
+  background: #fff5f5;
+  border-left: 4px solid #fc8181;
+}
+
+.errorState p {
+  color: #c53030;
+}
+
+/* Prompt Display */
+.promptArea {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+}
+
+.prompt {
+  width: 100%;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 1.5rem;
+  line-height: 2;
+  color: #2d3748;
+}
+
+.promptLine {
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.promptChar {
+  position: relative;
+  transition: all 0.05s ease;
+  color: #cbd5e0;
+}
+
+.promptChar.correct {
+  color: #38a169;
+  background: #c6f6d5;
+  border-radius: 2px;
+  padding: 0 2px;
+  font-weight: 500;
+}
+
+.promptChar.incorrect {
+  color: #e53e3e;
+  background: #fed7d7;
+  border-radius: 2px;
+  padding: 0 2px;
+  font-weight: 500;
+}
+
+.promptChar.cursor {
+  color: #4299e1;
+  border-bottom: 3px solid #4299e1;
+  animation: cursor-blink 1s infinite;
+}
+
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Metrics Bar */
+.metricsBar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metric {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.metricLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #718096;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.metricValue {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+/* Input Area */
+.inputArea {
+  margin-bottom: 1.5rem;
+}
+
+.startButton {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.startButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.startButton:active {
+  transform: translateY(0);
+}
+
+.input {
+  width: 100%;
+  padding: 1.5rem;
+  font-size: 1.25rem;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  border: 2px solid #4299e1;
+  border-radius: 12px;
+  background: white;
+  color: #2d3748;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.input:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Instructions */
+.instructions {
+  background: #ebf8ff;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #4299e1;
+  text-align: center;
+}
+
+.instructions p {
+  margin: 0.5rem 0;
+  color: #2c5282;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.instructions strong {
+  color: #2d3748;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .title h2 {
+    font-size: 1.25rem;
+  }
+
+  .promptArea {
+    padding: 1.5rem;
+    min-height: 100px;
+  }
+
+  .prompt {
+    font-size: 1.25rem;
+  }
+
+  .metricsBar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .startButton,
+  .input {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.5rem;
+  }
+
+  .prompt {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .promptChar {
+    padding: 0 1px;
+  }
+
+  .metricsBar {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .metricLabel {
+    margin-bottom: 0;
+  }
+
+  .startButton,
+  .input {
+    font-size: 0.95rem;
+    padding: 0.875rem;
+  }
+}

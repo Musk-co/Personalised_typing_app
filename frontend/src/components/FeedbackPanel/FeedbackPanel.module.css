@@ -1,0 +1,209 @@
+/**
+ * Feedback Panel Styles
+ *
+ * Toast-like notifications for achievements, milestones, and motivational messages.
+ * Celebrate every win.
+ */
+
+.feedbackContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+  pointer-events: auto;
+}
+
+.feedbackMessage {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: white;
+  animation: slideIn 0.3s ease-out;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
+
+.feedbackMessage:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+}
+
+.feedbackMessage.achievement {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  border-left: 4px solid #FF8C00;
+  color: #333;
+}
+
+.feedbackMessage.milestone {
+  background: linear-gradient(135deg, #FF6B6B 0%, #FF1744 100%);
+  border-left: 4px solid #FF1744;
+  color: white;
+}
+
+.feedbackMessage.encouragement {
+  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+  border-left: 4px solid #2E7D32;
+  color: white;
+}
+
+.feedbackMessage.improvement {
+  background: linear-gradient(135deg, #2196F3 0%, #1976D2 100%);
+  border-left: 4px solid #1565C0;
+  color: white;
+}
+
+.feedbackMessage.streak {
+  background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
+  border-left: 4px solid #D84315;
+  color: white;
+}
+
+.feedbackContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.emoji {
+  font-size: 2rem;
+  flex-shrink: 0;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.message {
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+.dismissButton {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: rgba(255, 255, 255, 0.3);
+  color: currentColor;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dismissButton:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.dismissButton:active {
+  transform: scale(0.95);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .feedbackContainer {
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    max-width: 100%;
+  }
+
+  .feedbackMessage {
+    padding: 0.875rem;
+  }
+
+  .emoji {
+    font-size: 1.5rem;
+  }
+
+  .title {
+    font-size: 0.95rem;
+  }
+
+  .message {
+    font-size: 0.85rem;
+  }
+}
+
+/* Animation variants for different message types */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.feedbackMessage.streak {
+  animation: slideIn 0.3s ease-out, pulse 0.5s ease-in-out 0.3s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.feedbackMessage.achievement {
+  animation: slideIn 0.3s ease-out, bounce 0.4s ease-in-out 0.3s;
+}
+
+@keyframes expand {
+  from {
+    transform: scale(0.95);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.feedbackMessage.milestone {
+  animation: slideIn 0.3s ease-out, expand 0.4s ease-out 0.3s;
+}

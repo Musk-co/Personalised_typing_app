@@ -1,0 +1,337 @@
+/**
+ * Skill Dashboard Styles
+ * 
+ * Creates an interface that feels like an intelligent coach:
+ * observant, encouraging, and focused on making users feel understood.
+ */
+
+.dashboardContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #2d3748;
+}
+
+.header p {
+  font-size: 1.1rem;
+  color: #718096;
+  margin: 0.5rem 0 0 0;
+}
+
+/* Loading and Error States */
+.loadingState,
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 4px solid #e2e8f0;
+  border-top-color: #4299e1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingState p,
+.errorState p {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #4a5568;
+}
+
+/* Metrics Grid */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metricCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  transition: all 0.3s ease;
+  border-left: 4px solid #4299e1;
+}
+
+.metricCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.metricIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.metricValue {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2d3748;
+  margin: 0.5rem 0;
+}
+
+.metricLabel {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  color: #a0aec0;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.metricTrend {
+  font-size: 0.9rem;
+  color: #38a169;
+  font-weight: 500;
+  margin: 0.5rem 0;
+}
+
+.metricSubtitle {
+  font-size: 0.8rem;
+  color: #718096;
+  margin-top: 0.5rem;
+}
+
+/* Sections */
+.section {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem 0;
+  color: #2d3748;
+}
+
+/* Insights */
+.insightsList {
+  display: grid;
+  gap: 1rem;
+}
+
+.insightCard {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f7fafc;
+  border-left: 4px solid #4299e1;
+  transition: all 0.3s ease;
+}
+
+.insightCard:hover {
+  background: #edf2f7;
+}
+
+.insightCard.encouraging {
+  border-left-color: #38a169;
+  background: #f0fff4;
+}
+
+.insightCard.cautionary {
+  border-left-color: #f6ad55;
+  background: #fffaf0;
+}
+
+.insightCard.celebratory {
+  border-left-color: #d69e2e;
+  background: #fef5e7;
+}
+
+.insightCard.honest {
+  border-left-color: #4299e1;
+  background: #ebf8ff;
+}
+
+.insightIcon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.insightContent {
+  flex: 1;
+}
+
+.insightTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: #2d3748;
+}
+
+.insightDescription {
+  font-size: 0.9rem;
+  color: #4a5568;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Weak Keys */
+.weakKeysList {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.weakKeyItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.keyChar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: #edf2f7;
+  border-radius: 8px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2d3748;
+  flex-shrink: 0;
+  border: 2px solid #cbd5e0;
+}
+
+.keyStats {
+  min-width: 120px;
+}
+
+.keyAttempts {
+  font-size: 0.85rem;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.keyErrorRate {
+  font-size: 0.85rem;
+  color: #e53e3e;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.keyBar {
+  flex: 1;
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.keyBarFill {
+  height: 100%;
+  background: linear-gradient(90deg, #fc8181, #f56565);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+/* Status Message */
+.statusMessage {
+  text-align: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.statusMessage p {
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .dashboardContainer {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
+  .metricCard {
+    padding: 1rem;
+  }
+
+  .metricValue {
+    font-size: 1.75rem;
+  }
+
+  .metricIcon {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .weakKeyItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .keyBar {
+    width: 100%;
+  }
+
+  .statusMessage {
+    padding: 1.5rem;
+  }
+
+  .statusMessage p {
+    font-size: 1rem;
+  }
+}

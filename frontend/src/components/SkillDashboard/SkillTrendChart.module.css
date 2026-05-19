@@ -1,0 +1,221 @@
+/**
+ * Skill Trend Chart Styles
+ */
+
+.chartContainer {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  margin-bottom: 2rem;
+}
+
+.loadingState,
+.errorState,
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem;
+  text-align: center;
+  min-height: 300px;
+}
+
+.loadingState p,
+.errorState p,
+.emptyState p {
+  font-size: 1rem;
+  color: #718096;
+  margin: 0;
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.chartTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: #2d3748;
+}
+
+.trendBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #f7fafc;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+}
+
+.trendLabel {
+  font-size: 0.85rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.trend {
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  display: inline-block;
+}
+
+.trend.improving {
+  color: #22543d;
+  background: #c6f6d5;
+}
+
+.trend.declining {
+  color: #742a2a;
+  background: #fed7d7;
+}
+
+.trend.stable {
+  color: #44337a;
+  background: #e9d8fd;
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 1rem;
+}
+
+.metricButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: transparent;
+  color: #718096;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.metricButton:hover {
+  color: #2d3748;
+}
+
+.metricButton.active {
+  color: #4299e1;
+  border-bottom-color: #4299e1;
+}
+
+/* SVG Chart */
+.svg {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  margin-bottom: 1.5rem;
+}
+
+.dataPoint {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.dataPoint:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.2));
+}
+
+/* Statistics */
+.statistics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f7fafc;
+  border-radius: 8px;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: #718096;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d3748;
+}
+
+.statValue.positive {
+  color: #38a169;
+}
+
+.statValue.negative {
+  color: #e53e3e;
+}
+
+/* Insight */
+.insight {
+  padding: 1rem;
+  background: #ebf8ff;
+  border-left: 4px solid #4299e1;
+  border-radius: 4px;
+}
+
+.insight p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #2c5282;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .chartContainer {
+    padding: 1.5rem;
+  }
+
+  .chartHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .chartTitle {
+    font-size: 1.25rem;
+  }
+
+  .trendBadge {
+    width: 100%;
+  }
+
+  .statistics {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .chartContainer {
+    padding: 1rem;
+  }
+
+  .svg {
+    max-height: 300px;
+  }
+
+  .statistics {
+    grid-template-columns: 1fr;
+  }
+}

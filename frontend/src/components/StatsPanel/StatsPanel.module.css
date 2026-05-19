@@ -1,0 +1,275 @@
+/**
+ * Stats Panel Styles
+ *
+ * Clean, real-time display of session metrics.
+ * Shows progress happening in real-time.
+ */
+
+.container {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.container.active {
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+  border-top: 3px solid #667eea;
+}
+
+/* Primary Stats */
+.primaryStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.statBlock {
+  text-align: center;
+  padding: 1rem;
+  background: #F9FAFB;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.statBlock:hover {
+  background: #F3F4F6;
+  transform: translateY(-2px);
+}
+
+.statLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #6B7280;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.statValue {
+  font-size: 2rem;
+  font-weight: 700;
+  transition: all 0.2s ease;
+  display: inline-block;
+}
+
+.statValue.excellent {
+  animation: pulse-excellent 0.5s ease;
+}
+
+.statValue.great {
+  animation: pulse-great 0.4s ease;
+}
+
+.statValue.good {
+  animation: pulse-good 0.4s ease;
+}
+
+@keyframes pulse-excellent {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-great {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-good {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.statUnit {
+  font-size: 0.75rem;
+  color: #9CA3AF;
+  margin-top: 0.25rem;
+}
+
+.statValue.poor {
+  color: #EF4444;
+}
+
+.statValue.fair {
+  color: #F59E0B;
+}
+
+.statValue.good {
+  color: #EAB308;
+}
+
+.statValue.great {
+  color: #84CC16;
+}
+
+.statValue.excellent {
+  color: #10B981;
+}
+
+/* Secondary Stats */
+.secondaryStats {
+  border-top: 1px solid #E5E7EB;
+  padding-top: 1rem;
+}
+
+.secondaryStat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.secondaryLabel {
+  color: #6B7280;
+  font-weight: 500;
+}
+
+.secondaryValue {
+  color: #1F2937;
+  font-weight: 600;
+}
+
+.progressSection {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #E5E7EB;
+}
+
+.progressLabel {
+  font-size: 0.85rem;
+  color: #6B7280;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background: #E5E7EB;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  transition: width 0.3s ease;
+  border-radius: 3px;
+}
+
+/* Active Indicator */
+.activeIndicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: #ECFDF5;
+  border-radius: 6px;
+  color: #059669;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.pulse {
+  width: 8px;
+  height: 8px;
+  background: #10B981;
+  border-radius: 50%;
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .primaryStats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .statBlock {
+    padding: 0.75rem;
+  }
+
+  .statValue {
+    font-size: 1.5rem;
+  }
+
+  .statLabel {
+    font-size: 0.7rem;
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0.75rem;
+  }
+
+  .primaryStats {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .statBlock {
+    padding: 0.5rem;
+  }
+
+  .statValue {
+    font-size: 1.25rem;
+  }
+
+  .statLabel {
+    font-size: 0.65rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .statUnit {
+    font-size: 0.65rem;
+    margin-top: 0.1rem;
+  }
+
+  .secondaryStat {
+    padding: 0.4rem 0;
+    font-size: 0.85rem;
+  }
+}
